@@ -10,10 +10,9 @@ const date = new Date(
     .toString()
 )
 process.env.VUE_APP_VERSION = require('./package.json').version
-process.env.VUE_APP_BUILD_DATE =
-  date.getDate() +
-  ' ' +
-  date.toLocaleString('en-US', { month: 'short' }).toLowerCase()
+process.env.VUE_APP_BUILD_DATE = `${date.getDate()} ${date
+  .toLocaleString('en-US', { month: 'short' })
+  .toLowerCase()}`
 const exchanges = []
 
 fs.readdirSync('./src/worker/exchanges/').forEach(file => {
